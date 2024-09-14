@@ -18,11 +18,22 @@ public class Main {
         System.out.println();
 
         System.out.println("Задача 2");
-        int[] arr = {331, 105, 45, 109, 73};
-        int min, max;
-        Arrays.sort(arr);
-        min = arr[0];
-        max = arr[4];
+        int[] arr = {315, 10, 45, 115, 73};
+        int min = arr[0];
+        int max = arr[0];
+        //первый способ нахождения max и min c использованием сортировки массива
+        /* Arrays.sort(arr);
+        //min = arr[0];
+        max = arr[arr.length-1];*/
+
+        //второй способ нахождения max и min c использованием цикла
+        for (int element : arr) {
+            if (element < min) {
+                min = element;
+            } else if (element > max) {
+                max = element;
+            }
+        }
         System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей. " +
                 "Максимальная сумма трат за неделю составила " + max + " рублей");
         System.out.println();
@@ -30,11 +41,12 @@ public class Main {
         System.out.println("Задача 3");
         int[] arr2 = {45, 17, 99, 32, 70};
         int sum = 0;
-        double averageValue = 0.0;
+        //double averageValue = 0.0;
         for (int element : arr2) {
             sum += element;
         }
-        averageValue = (double) sum / (arr2.length - 1);
+
+        double averageValue = (double) sum / arr2.length;
         System.out.println("Средняя сумма трат за месяц составила " + averageValue + " рублей.");
         System.out.println();
 
@@ -42,7 +54,9 @@ public class Main {
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         int y = reverseFullName.length - 1;
         char x;
-        for (int i = 0; i < reverseFullName.length/2; i++) {
+        for (
+                int i = 0;
+                i < reverseFullName.length / 2; i++) {
             x = reverseFullName[i];
             reverseFullName[i] = reverseFullName[y - i];
             reverseFullName[y - i] = x;
